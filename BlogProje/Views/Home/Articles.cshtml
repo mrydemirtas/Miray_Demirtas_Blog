@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BlogProje.Models.Data.Makale>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslık)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.İcerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fotograf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UyeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Okunma)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori.KategoriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslık)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.İcerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fotograf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UyeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Okunma)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MakaleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MakaleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MakaleId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model IEnumerable<BlogProje.Models.Data.Makale>
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">My Dashboard</li>
+    </ol>
+    <!-- Example DataTables Card-->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Data Table Example
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Kategori.KategoriAdi)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Baslık)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.İcerik)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fotograf)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Tarih)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UyeId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Okunma)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Kategori.KategoriAdi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Baslık)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.İcerik)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fotograf)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tarih)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UyeId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Okunma)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.MakaleId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.MakaleId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.MakaleId })
+                            </td>
+                        </tr>
+                    }                        
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    </div>
+</div>
+
